@@ -1,0 +1,8 @@
+type Profile @loadModel(id: "kjzl6hvfrbw6c7wmcl5dph9khf1p761evahkc75tzj9rqdtcmkebv0249lyyw0m") {
+  id: ID
+}
+
+type Todo @createModel(accountRelation: LIST, description: "Profile Todo List") {
+  user: StreamID! @documentReference(model: "Profile")
+  task: String! @string(maxLength: 100)
+}
